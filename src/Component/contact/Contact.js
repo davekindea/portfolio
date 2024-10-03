@@ -1,65 +1,71 @@
-import React from 'react';
-import './contact.css'; // Ensure this file includes the updated CSS
+
+import './contact.css';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const form = useRef();
+  const [alertMessage, setAlertMessage] = useState('');  // For the alert message
+  const [alertType, setAlertType] = useState('');        // To define success or error type
+  const [showAlert, setShowAlert] = useState(false);     // For showing/hiding alert
+
+  const sendEmail = (e) => {
+    e.preventDefault(); // Prevent the default form submission
     
-    // Get form data
-    const formData = new FormData(e.target);
+  
     
-    // Construct the URL for Google Form submission
-    const googleFormURL = 'https://forms.gle/8xaX1K8LSjvWL4Yu8'
-    
-    // Create a URLSearchParams object from the form data
-    const searchParams = new URLSearchParams();
-    formData.forEach((value, key) => {
-      searchParams.append(key, value);
-    });
-    
-    // Submit the form data to Google Forms
-    fetch(googleFormURL, {
-      method: 'POST',
-      body: searchParams,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        alert('Message sent successfully!');
-        e.target.reset(); // Reset form fields
-      } else {
-        alert('Error sending message.');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error sending message.');
-    });
+
+    emailjs.sendForm('service_7qxnbju', 'template_rg0couy', form.current, 'H9RvjXV_J9FA3dg1Q')
+      .then(
+        () => {
+          setAlertMessage('Message sent successfully!');
+          setAlertType('success');
+          setShowAlert(true);
+          form.current.reset();  // Clear the form after success
+
+          // Hide the alert after 3 seconds
+          setTimeout(() => {
+            setShowAlert(false);
+          }, 6000);
+        },
+        (error) => {
+          setAlertMessage('Failed to send the message, please try again.');
+          setAlertType('error');
+          setShowAlert(true);
+
+          // Hide the alert after 6 seconds
+          setTimeout(() => {
+            setShowAlert(false);
+          }, 6000);
+        }
+      );
   };
 
   return (
-    <div className="contact-container">
+    <div id='contacts' className="contact-container">
       <h1>Contact Me</h1>
       <h3>
         LET'S BUILD SOMETHING GREAT
         <hr />
         TOGETHER
       </h3>
+
+      {showAlert && (  // Display alert based on showAlert state
+        <div className={`alert ${alertType}`}>
+          {alertMessage}
+        </div>
+      )}
+
       <div className="contact-us">
         <div className="contact-form">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input id="name" name="entry.123456789" type="text" placeholder="Enter your name" required />
-            <label htmlFor="email">Email</label>
-            <input id="email" name="entry.987654321" type="email" placeholder="Enter your email" required />
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="entry.456789123" placeholder="Enter your message" required></textarea>
+          <form ref={form} onSubmit={sendEmail}>
+            <input id="name" name="to_name" type="text" placeholder="Enter your name" required />
+            <input id="email" name="to_email" type="email" placeholder="Enter your email" required />
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
             <button type="submit">Submit</button>
           </form>
         </div>
+
         <div className="contact-info">
           <div>
             <i className="fa fa-phone" aria-hidden="true"></i>
@@ -81,25 +87,26 @@ const Contact = () => {
             </div>
           </div>
           <div>
-            <i className="fa fa-telegram" aria-hidden="true"></i>
+            <i className="fa-brands fa-telegram"></i>
             <div>
               <h2><a href="https://t.me/davido1221">Telegram</a></h2>
             </div>
           </div>
           <div>
-            <i className="fa fa-github" aria-hidden="true"></i>
+            <i className="fa-brands fa-github"></i>
             <div>
               <h2><a href="https://github.com/davekindea">GitHub</a></h2>
             </div>
           </div>
           <div>
-            <i className="fa fa-linkedin" aria-hidden="true"></i>
+            <i className="fa-brands fa-linkedin"></i>
             <div>
               <h2><a href="https://www.linkedin.com/in/dawit-kindea-98b11424">LinkedIn</a></h2>
             </div>
           </div>
         </div>
       </div>
+
       <div className="contact-footer">
         <h2>© 2024 Dawit. All rights reserved</h2>
       </div>

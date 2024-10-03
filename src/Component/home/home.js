@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
+    <div id='home'  className="home-container">
       <img src={currentPic} alt="background" className="background-image" />
       <div className="text-overlay">
         <h1>

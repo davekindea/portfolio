@@ -3,7 +3,7 @@ import './offer.css';
 
 const Offer = () => {
   return (
-    <div className="offer-container">
+    <div id='services' className="offer-container">
       <h1 className="offer-title">What I Offer</h1>
       <div className="offer-items">
         <div className="offer-item">
