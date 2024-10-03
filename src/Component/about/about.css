@@ -1,0 +1,237 @@
+/* Overall container */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 50px;
+   
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    min-height: 100vh;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Advanced styling for image */
+  .about-image img {
+    margin-top: 60px;
+    width: 450px;
+    height: auto;
+    border-radius: 20px;
+   
+    margin-bottom: 50px;
+    padding-left: 200px;
+    
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  }
+  
+  /* Hover effect with scale */
+  .about-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Text content section */
+  .about-text {
+    max-width: 700px;
+    text-align: center;
+    line-height: 1.8;
+    padding: 0 30px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .about-text h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #2b2d42;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, #ff8a00 0%, #e52e71 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .about-text p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-align: justify;
+  }
+  
+  /* Skills section */
+  .skills-section {
+    margin-top: 50px;
+  }
+  
+  .skills-section h2 {
+    font-size: 2.4em;
+    margin-bottom: 25px;
+    color: #333;
+    position: relative;
+    font-weight: 600;
+  }
+  
+  .skills-section h2::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 50px;
+    height: 3px;
+    background-color: #ff8a00;
+    transform: translateX(-50%);
+  }
+  
+  /* Skills list with subtle hover effect */
+  .skills-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    font-size: 1.1em;
+    color: #555;
+  }
+  
+  .skills-list li {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .skills-list li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  /* Container for the resume section */
+.resume-container {
+   
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #e7e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
+    width: 90%; 
+    height: 300px;   
+    margin: 0 auto;
+    margin-top: 60px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Styling for the title */
+  .resume-title {
+    font-size: 2.5rem;
+    color: hsl(0, 13%, 5%);
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Styling for the subtitle */
+  .resume-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+  }
+  
+  /* Button styling */
+  .resume-btn {
+    background-color: #FF5722;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Button hover effect */
+  .resume-btn:hover {
+    background-color: #E64A19;
+    box-shadow: 0 6px 16px rgba(255, 87, 34, 0.5);
+    transform: translateY(-3px); /* Slight lift effect */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .resume-container {
+      padding: 40px 15px;
+    }
+    
+    .resume-title {
+      font-size: 2rem;
+    }
+  
+    .resume-subtitle {
+      font-size: 1rem;
+    }
+  
+    .resume-btn {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+  }
+  
+  
+  /* Responsive design */
+  @media (min-width: 768px) {
+    .about-container {
+      flex-direction: row;
+      padding: 80px;
+    }
+  
+    .about-image {
+      margin-right: 60px;
+    }
+  
+    .about-text {
+      text-align: left;
+    }
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive design for smaller devices */
+  @media (max-width: 480px) {
+    .about-image img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+  
+    .about-text h1 {
+      font-size: 2.2em;
+    }
+  
+    .about-text p {
+      font-size: 1em;
+    }
+  
+    .skills-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  

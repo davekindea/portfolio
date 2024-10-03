@@ -1,0 +1,126 @@
+/* Home container to cover the full viewport */
+.home-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Background image styling with smooth fade-in effect */
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.8; /* Slight opacity for overlay effect */
+    transition: opacity 1.5s ease-in-out;
+  }
+  
+  .background-image:hover {
+    opacity: 1; /* Hover effect to brighten the image */
+  }
+  
+  /* Text overlay centered on the screen */
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 10;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInText 1.2s ease-in-out;
+  }
+  
+  /* Advanced text effects for the heading */
+  .text-overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, rgba(255, 136, 0, 1) 0%, rgba(229, 46, 113, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.5s ease;
+  }
+  
+  .text-overlay h1:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Divider line with enhanced gradient styling */
+  .text-overlay hr {
+    border: 0;
+    height: 2px;
+    width: 50%;
+    margin: 1rem auto;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 100%);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .text-overlay hr:hover {
+    width: 70%; /* Expand on hover */
+  }
+  
+  /* Paragraph text with modern styling */
+  .text-overlay p {
+    font-size: 1.4rem;
+    margin: 0 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .text-overlay p:hover {
+    color: rgba(255, 255, 255, 1); /* Brighten text on hover */
+  }
+  
+  /* Animation for smooth text fade-in */
+  @keyframes fadeInText {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive design for mobile devices */
+  @media (max-width: 768px) {
+    .text-overlay h1 {
+      font-size: 2.5rem;
+    }
+  
+    .text-overlay p {
+      font-size: 1.1rem;
+    }
+  
+    .text-overlay hr {
+      width: 40%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-overlay h1 {
+      font-size: 2rem;
+    }
+  
+    .text-overlay p {
+      font-size: 1rem;
+    }
+  
+    .text-overlay hr {
+      width: 30%;
+    }
+  }
+  
