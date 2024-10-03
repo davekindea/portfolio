@@ -14,7 +14,7 @@ const Offer = () => {
           </p>
         </div>
         <div className="offer-item">
-          <i className="fa fa-smile-o offer-icon" aria-hidden="true"></i>
+          <i class="fa-solid fa-rocket-launch"></i>
           <h2 className="offer-heading">Fully Responsive</h2>
           <p className="offer-description">
             I design my websites for every screen size available and I make sure it looks great on every device.

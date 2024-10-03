@@ -1,8 +1,8 @@
 /* Container for the entire contact section */
 .contact-container {
     padding: 60px 20px; /* Increased padding for better spacing */
-    background-color: #000;
-    color: #fff;
+    background-color: #e7dadad6;
+    color: #0c0b0b;
     text-align: center;
 }
 
@@ -10,7 +10,7 @@
 .contact-container h1 {
     font-size: 2.8rem; /* Slightly larger for emphasis */
     margin-bottom: 20px;
-    color: #e1e1e1; /* Light gray for better contrast */
+    color: #010101; /* Light gray for better contrast */
 }
 .contact-us{
     display: flex;
@@ -22,14 +22,14 @@
 .contact-container h3 {
     font-size: 1.6rem; /* Slightly larger for better readability */
     margin-bottom: 40px;
-    color: #ccc; /* Light color for subtitle */
+    color: #1b0e0e; /* Light color for subtitle */
 }
 
 /* Horizontal rule styling */
 .contact-container hr {
     border: 0;
     height: 2px;
-    background: #444; /* Darker gray for better visibility */
+    background: #afa8a8; /* Darker gray for better visibility */
     margin: 30px auto; /* Increased margin for better spacing */
     width: 50%;
 }
@@ -48,7 +48,7 @@
 .contact-form label {
     font-size: 1rem;
     margin: 10px 0 5px;
-    color: #ddd; /* Light gray for better readability */
+    color: hwb(0 2% 98% / 0.527); /* Light gray for better readability */
 }
 
 /* Input and textarea styling */
@@ -61,8 +61,8 @@
     border: 1px solid #555; /* Slightly lighter border for contrast */
     border-radius: 8px; /* More rounded corners */
     font-size: 1rem;
-    background-color: #222; /* Darker background for inputs */
-    color: #fff; /* White text color */
+    background-color: #ecdede; /* Darker background for inputs */
+    color: #100f0f; /* White text color */
 }
 
 /* Textarea specific styling */
@@ -75,8 +75,8 @@
 .contact-form button {
     padding: 12px 25px; /* Increased padding for better appearance */
     border: none;
-    background-color: #333;
-    color: #fff;
+    background-color: #f4dfdf;
+    color: #090808bb;
     font-size: 1.1rem; /* Slightly larger text for readability */
     border-radius: 8px; /* Consistent with input fields */
     cursor: pointer;
@@ -84,7 +84,7 @@
 }
 
 .contact-form button:hover {
-    background-color: #444; /* Slightly lighter on hover */
+    background-color: #12d9d9; /* Slightly lighter on hover */
     transform: scale(1.05); /* Subtle scaling effect on hover */
 }
 
@@ -104,7 +104,7 @@
     gap: 10px; /* Slightly increased gap for better spacing */
     
     text-align: left;
-    background-color: #222; /* Background color for better contrast */
+    background-color: #e0d0d0; /* Background color for better contrast */
     padding: 10px;
     border-radius: 8px; /* Rounded corners for items */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
@@ -120,7 +120,7 @@
 .contact-info h2 {
     font-size: 1.3rem; /* Larger text for headings */
     margin: 0;
-    color: #ddd; /* Light color for text */
+    color: #1405056a; /* Light color for text */
 }
 
 /* Link styling */
@@ -138,5 +138,5 @@
 .contact-footer {
     margin-top: 20px;
     font-size: 1rem;
-    color: #777; /* Light gray for footer */
+    color: #110c0c75; /* Light gray for footer */
 }
