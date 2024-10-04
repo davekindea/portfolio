@@ -1,91 +1,148 @@
+/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-.head-name {
-    font-family: 'Lobster', cursive;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  }  
+/* Navbar styles for large screens */
+.navbar {
+  position: fixed;
+  background-color: #333; /* Main navbar background color */
+  color: white;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 1000;
+}
 
+.navbar__name {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+}
 
+/* Menu styles for large screens */
+.navbar__menu {
+  display: flex; /* Menu is visible on large screens */
+}
 
+.navbar__list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-right: 50px;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar__link li {
+  cursor: pointer;
+}
+
+.navbar__link:hover {
+  background-color: #555;
+  border-radius: 5px;
+  color: #dff115; 
+}
+
+.navbar__link.active {
+  background-color: #f4a261; /* Highlight the active link */
+  border-radius: 5px;
+}
+
+.navbar__link + .navbar__link {
+  margin-left: 30px;
+}
+
+/* Hamburger Menu Styles (Initially hidden) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Media Queries for smaller screens (768px or smaller) */
+@media (max-width: 768px) {
   .navbar {
-    position: fixed;
-    background-color: #333;
-    color: white;
-    padding: 30px 50px;
-   
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-
-    z-index: 1000;
-
+    padding: 20px 25px;
   }
-  
+
+  /* Align navbar name on the left */
   .navbar__name {
-    font-family: 'Lobster', cursive;
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    margin: 0;
-    margin-left: 50px
+    text-align: left;
+    flex-grow: 1;
   }
-  
+
+  /* Display the hamburger menu on small screens */
+  .hamburger {
+    display: flex;
+    padding-right: 20px;
+  }
+
+  /* Hide the full navbar menu initially */
   .navbar__menu {
-    display: flex;
-  
+    display: none; /* Hide on small screens */
+    flex-direction: column;
+    width: 100%;
+    position: absolute; /* Position it absolute to prevent changing the navbar position */
+    top: 60px; /* Adjust according to the navbar height */
+    left: 0; /* Align to the left */
+    background-color: rgba(255, 255, 255, 0.8); /* Set a semi-transparent white background */
+    z-index: 999; /* Ensure it appears above other content */
+    color: black;
   }
-  
+
+  /* Show menu in vertical direction when active */
+  .navbar__menu.active {
+    display: flex; /* Show the menu when active */
+  }
+
+  /* Adjust the menu list for smaller screens */
   .navbar__list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding-right: 50px;
+    flex-direction: column;
+    padding: 0;
+    width: 80%;
+    margin: 0 auto; /* Center align the list */
   }
-  
+
+  /* Full width links for smaller screens */
   .navbar__link {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 10px;
   }
-  
-  .navbar__link li {
-    cursor: pointer;
+
+  /* Hide the navbar list and links initially */
+  .navbar__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    color: black;
+    opacity: 1; /* Set opacity to 1 to show full visibility */
+    margin: 0;
   }
-  
-  .navbar__link:hover {
-    background-color: #555;
-    border-radius: 5px;
-    color: #dff115; 
+  .navbar__list a li{
+    color: black;
   }
-  .navbar__link::after {
-    background-color: #de12c6;
-  }
-  
-  .navbar__link + .navbar__link {
-    margin-left: 30px;
-  }
-  .navbar__link.active {
-    background-color: #f4a261; /* Change this color for the highlight */
-    border-radius: 5px;
-  }
-  
- 
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-    }
-    
-    .navbar__menu {
-      flex-direction: column;
-    }
-    
-    .navbar__link {
-      margin-bottom: 10px;
-    }
-  }
-  
+}
