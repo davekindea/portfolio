@@ -1,87 +1,85 @@
 /* Container styling for the whole offer section */
 .offer-container {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-   
-    width: 90%;
-  }
-  
-  /* Title styling */
-  .offer-title {
-    font-size: 2.5rem;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 30px;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /* Container for individual offer items */
-  .offer-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* Styling for each offer item */
+  text-align: center;
+  padding: 3.125rem 1.25rem; /* 50px 20px */
+  background-color: #f4f4f4;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 4px 10px */
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* Title styling */
+.offer-title {
+  font-size: 2.5rem; /* 2.5rem = 40px */
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.875rem; /* 30px */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Container for individual offer items */
+.offer-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem; /* 20px */
+}
+
+/* Styling for each offer item */
+.offer-item {
+  background: #fff;
+  border-radius: 0.625rem; /* 10px */
+  padding: 1.25rem; /* 20px */
+  width: calc(30% - 2.5rem); /* Adjusting width for 3 items per row with spacing */
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 4px 10px */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for each offer item */
+.offer-item:hover {
+  transform: translateY(-0.3125rem); /* -5px */
+  box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.2); /* 6px 15px */
+}
+
+/* Styling for the icons */
+.offer-icon {
+  font-size: 3rem; /* 48px */
+  color: #FF5722;
+  margin-bottom: 0.9375rem; /* 15px */
+}
+
+/* Heading styling */
+.offer-heading {
+  font-size: 1.125rem; /* 1.8rem = 28.8px */
+  color: #333;
+  font-weight: 600;
+  margin: 0.625rem 0; /* 10px 0 */
+}
+
+/* Description styling */
+.offer-description {
+  font-size: 1rem; /* 16px */
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Dots styling */
+.dots {
+  font-size: 2rem; /* 32px */
+  margin: 0 0.625rem; /* 10px */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 48em) { /* 768px */
   .offer-item {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: calc(30% - 40px); /* Adjusting width for 3 items per row with spacing */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+      width: calc(50% - 1.25rem); /* Adjusting for 2 items per row on tablets */
   }
-  
-  /* Hover effect for each offer item */
-  .offer-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Styling for the icons */
-  .offer-icon {
-    font-size: 3rem;
-    color: #FF5722;
-    margin-bottom: 15px;
-  }
-  
-  /* Heading styling */
-  .offer-heading {
-    font-size: 1.8rem;
-    color: #333;
-    font-weight: 600;
-    margin: 10px 0;
-  }
-  
-  /* Description styling */
-  .offer-description {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
-  }
-  
-  /* Dots styling */
-  .dots {
-    font-size: 2rem;
-    margin: 0 10px;
-  }
-  
-  /* Responsive design adjustments */
-  @media (max-width: 768px) {
-    .offer-item {
-      width: calc(50% - 20px); /* Adjusting for 2 items per row on tablets */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .offer-item {
+}
+
+@media (max-width: 30em) { /* 480px */
+  .offer-item {
       width: 100%; /* Full width for mobile devices */
-    }
   }
-  
+}

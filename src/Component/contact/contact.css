@@ -1,6 +1,6 @@
 /* Container for the entire contact section */
 .contact-container {
-    padding: 60px 20px; /* Increased padding for better spacing */
+    padding: 3.75rem 1.25rem; /* 60px = 3.75rem, 20px = 1.25rem */
     background-color: #e7dadad6; /* Light background color */
     color: #0c0b0b; /* Default text color */
     text-align: center; /* Center align text */
@@ -8,8 +8,8 @@
 
 /* Contact section title */
 .contact-container h1 {
-    font-size: 2.8rem; /* Slightly larger for emphasis */
-    margin-bottom: 20px; /* Space below title */
+    font-size: 1.75rem; /* 28px = 1.75rem */
+    margin-bottom: 1.25rem; /* 20px = 1.25rem */
     color: #010101; /* Dark color for better contrast */
 }
 
@@ -21,17 +21,17 @@
 
 /* Contact section subtitle */
 .contact-container h3 {
-    font-size: 1.6rem; /* Slightly larger for better readability */
-    margin-bottom: 40px; /* Space below subtitle */
+    font-size: 1rem; /* 16px = 1rem */
+    margin-bottom: 2.5rem; /* 40px = 2.5rem */
     color: #1b0e0e; /* Darker color for subtitle */
 }
 
 /* Horizontal rule styling */
 .contact-container hr {
     border: 0; /* Remove default border */
-    height: 2px; /* Height of the line */
+    height: 0.125rem; /* 2px = 0.125rem */
     background: #afa8a8; /* Darker gray for visibility */
-    margin: 30px auto; /* Center the line with margin */
+    margin: 1.875rem auto; /* 30px = 1.875rem */
     width: 50%; /* Set width */
 }
 
@@ -40,15 +40,15 @@
     display: flex; /* Flexbox for form layout */
     flex-direction: column; /* Vertical alignment */
     align-items: center; /* Center items */
-    margin-bottom: 20px; /* Space below form */
-    max-width: 900px; /* Maximum width for better alignment */
-    margin: 100px auto; /* Center the form with margin */
+    margin-bottom: 1.25rem; /* 20px = 1.25rem */
+    max-width: 56.25rem; /* 900px = 56.25rem */
+    margin: 6.25rem auto; /* 100px = 6.25rem */
 }
 
 /* Label styling */
 .contact-form label {
-    font-size: 1rem; /* Font size for labels */
-    margin: 10px 0 5px; /* Margin for spacing */
+    font-size: 1rem; /* 16px = 1rem */
+    margin: 0.625rem 0 0.3125rem; /* 10px = 0.625rem, 5px = 0.3125rem */
     color: hwb(0 2% 98% / 0.527); /* Light gray for readability */
 }
 
@@ -57,29 +57,29 @@
 .contact-form textarea {
     width: 100%; /* Full width for responsiveness */
     max-width: 100%; /* Maximum width */
-    padding: 12px; /* Padding for better user experience */
-    margin-bottom: 20px; /* Space below elements */
-    border: 1px solid #555; /* Border for inputs */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 1rem; /* Font size */
+    padding: 0.75rem; /* 12px = 0.75rem */
+    margin-bottom: 1.25rem; /* 20px = 1.25rem */
+    border: 0.0625rem solid #555; /* 1px = 0.0625rem */
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    font-size: 1rem; /* 16px = 1rem */
     background-color: #ecdede; /* Background color for inputs */
     color: #100f0f; /* Text color */
 }
 
 /* Textarea specific styling */
 .contact-form textarea {
-    height: 150px; /* Height for textarea */
+    height: 9.375rem; /* 150px = 9.375rem */
     resize: vertical; /* Allow vertical resizing */
 }
 
 /* Button styling */
 .contact-form button {
-    padding: 12px 25px; /* Padding for button */
+    padding: 0.75rem 1.5625rem; /* 12px = 0.75rem, 25px = 1.5625rem */
     border: none; /* Remove border */
     background-color: #f4dfdf; /* Background color for button */
     color: #090808bb; /* Text color */
-    font-size: 1.1rem; /* Font size for button */
-    border-radius: 8px; /* Rounded corners */
+    font-size: 1.0625rem; /* 17px = 1.0625rem */
+    border-radius: 0.5rem; /* 8px = 0.5rem */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s, transform 0.2s; /* Transitions for hover effect */
 }
@@ -94,32 +94,32 @@
 .contact-info {
     display: flex; /* Flexbox for layout */
     flex-direction: column; /* Vertical alignment */
-    margin-right: 150px; /* Space to the right */
-    gap: 20px; /* Space between items */
-    margin-bottom: 50px; /* Space below contact info */
+    margin-right: 9.375rem; /* 150px = 9.375rem */
+    gap: 1.25rem; /* 20px = 1.25rem */
+    margin-bottom: 3.125rem; /* 50px = 3.125rem */
 }
 
 /* Contact info individual item styling */
 .contact-info-in {
     display: flex; /* Flexbox for item layout */
     align-items: center; /* Center items vertically */
-    gap: 10px; /* Space between icon and text */
+    gap: 0.625rem; /* 10px = 0.625rem */
     text-align: left; /* Align text to the left */
     background-color: #e0d0d0; /* Background color for items */
-    padding: 10px; /* Padding for items */
-    border-radius: 8px; /* Rounded corners for items */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    padding: 0.625rem; /* 10px = 0.625rem */
+    border-radius: 0.5rem; /* 8px = 0.5rem */
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
 /* Icon styling */
 .contact-info i {
-    font-size: 1.5rem; /* Font size for icons */
+    font-size: 1.125rem; /* 18px = 1.125rem */
     color: #4caf50; /* Green color for icons */
 }
 
 /* Contact info heading styling */
 .contact-info h2 {
-    font-size: 1.3rem; /* Font size for headings */
+    font-size: 0.8125rem; /* 13px = 0.8125rem */
     margin: 0; /* Remove margin */
     color: #1405056a; /* Color for text */
 }
@@ -139,73 +139,75 @@
 
 /* Footer styling */
 .contact-footer {
-    margin-top: 20px; /* Space above footer */
-    font-size: 1rem; /* Font size for footer */
+    margin-top: 1.25rem; /* 20px = 1.25rem */
+    font-size: 1rem; /* 16px = 1rem */
     color: #110c0c75; /* Light gray for footer */
 }
 
 /* Media Queries for Responsive Design */
 
 /* Styles for tablets */
-@media (max-width: 768px) {
-    .contact-us{
+@media (max-width: 48rem) {
+    .contact-us {
         display: flex;
         flex-direction: column;
     }
+
     .contact-container {
-        padding: 40px 15px; /* Adjust padding */
+        padding: 2.5rem 0.9375rem; /* 40px = 2.5rem, 15px = 0.9375rem */
     }
 
     .contact-container h1 {
-        font-size: 2.5rem; /* Adjust title size */
+        font-size: 1.5625rem; /* 25px = 1.5625rem */
     }
 
     .contact-container h3 {
-        font-size: 1.4rem; /* Adjust subtitle size */
+        font-size: 0.875rem; /* 14px = 0.875rem */
     }
 
     .contact-form {
-        margin: 60px auto; /* Adjust margin for form */
+        margin: 3.75rem auto; /* 60px = 3.75rem */
     }
 
     .contact-info {
         margin-right: 0; /* Remove right margin */
-        gap: 15px; /* Adjust gap */
+        gap: 0.9375rem; /* 15px = 0.9375rem */
     }
 }
 
 /* Styles for mobile devices */
-@media (max-width: 480px) {
-    .contact-us{
+@media (max-width: 30rem) {
+    .contact-us {
         display: flex;
         flex-direction: column;
     }
+
     .contact-container {
-        padding: 30px 10px; /* Further adjust padding */
+        padding: 1.875rem 0.625rem; /* 30px = 1.875rem, 10px = 0.625rem */
     }
 
     .contact-container h1 {
-        font-size: 2rem; /* Further reduce title size */
+        font-size: 1.25rem; /* 20px = 1.25rem */
     }
 
     .contact-container h3 {
-        font-size: 1.2rem; /* Further reduce subtitle size */
+        font-size: 0.75rem; /* 12px = 0.75rem */
     }
 
     .contact-form {
-        margin: 40px auto; /* Adjust margin for form */
+        margin: 2.5rem auto; /* 40px = 2.5rem */
     }
 
     .contact-form button {
-        padding: 10px 20px; /* Adjust button padding */
-        font-size: 1rem; /* Adjust button font size */
+        padding: 0.625rem 1.25rem; /* 10px = 0.625rem, 20px = 1.25rem */
+        font-size: 1rem; 
     }
 
     .contact-info div {
-        padding: 8px; /* Adjust padding for contact info items */
+        padding: 0.5rem; 
     }
 
     .contact-info i {
-        font-size: 1.2rem; /* Adjust icon size */
+        font-size: 0.75rem; 
     }
 }

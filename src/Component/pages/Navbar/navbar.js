@@ -7,6 +7,18 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);  
   };
+  
+
+
+
+
+  
+
+  
+
+  const closeMenu = () => {
+    setMenuOpen(false); // Close the menu when a link is clicked
+  };
 
   return (
     <nav className="navbar">
@@ -19,14 +31,15 @@ const Navbar = () => {
       </div>
 
       <div className={`navbar__menu ${menuOpen ? 'active' : ''}`}>
-        <ul className="navbar__list">
-          <a href="#home" className="navbar__link"><li>HOME</li></a>
-          <a href="#about" className="navbar__link"><li>ABOUT</li></a>
-          <a href="#services" className="navbar__link"><li>SERVICES</li></a>
-          <a href="#portfolio" className="navbar__link"><li>PORTFOLIO</li></a>
-          <a href="#certificates" className="navbar__link"><li>CERTIFICATES</li></a>
-          <a href="#contacts" className="navbar__link"><li>CONTACTS</li></a>
+      <ul className="navbar__list">
+          <a href="#home" className="navbar__link" onClick={closeMenu}><li>HOME</li></a>
+          <a href="#about" className="navbar__link" onClick={closeMenu}><li>ABOUT</li></a>
+          <a href="#services" className="navbar__link" onClick={closeMenu}><li>SERVICES</li></a>
+          <a href="#portfolio" className="navbar__link" onClick={closeMenu}><li>PORTFOLIO</li></a>
+          <a href="#certificates" className="navbar__link" onClick={closeMenu}><li>CERTIFICATES</li></a>
+          <a href="#contacts" className="navbar__link" onClick={closeMenu}><li>CONTACTS</li></a>
         </ul>
+
       </div>
     </nav>
   );
