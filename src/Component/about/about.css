@@ -17,6 +17,7 @@
   flex: 1; /* Take up equal space */
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem; /* Ensure proper spacing on smaller screens */
 }
 
 .about-image img {
@@ -169,12 +170,12 @@
 /* Responsive adjustments for tablets and small screens */
 @media (max-width: 768px) {
   .about-container {
-    flex-direction: column; 
+    flex-direction: column;
     padding: 5vw 3vw;
   }
 
   .about-image {
-    margin-bottom: 2rem; 
+    margin-bottom: 2rem;
   }
 
   .about-image img {
@@ -184,15 +185,26 @@
   }
 
   .about-text {
-    text-align: center; 
+    text-align: center;
     max-width: 90%;
   }
 
   .about-text h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   .about-text p {
     font-size: 1rem;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr; /* Stack skills list vertically */
+    gap: 1rem; /* Reduced gap between items */
+  }
+
+  .skills-list li {
+    flex: 1 1 auto;
+    text-align: left;
+    padding: 1rem 1.5rem; /* Adjust padding for smaller screens */
   }
 }
