@@ -14,10 +14,10 @@
 
 /* Advanced styling for image */
 .about-image {
-  flex: 1; /* Take up equal space */
+  flex: 1; 
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem; /* Ensure proper spacing on smaller screens */
+  margin-bottom: 2rem; 
 }
 
 .about-image img {
