@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUp, Sun, Moon } from 'lucide-react';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      setScrolled(scrollTop > 50);
+      setScrollProgress(scrollPercent);
+      setShowBackToTop(scrollTop > 300);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -16,9 +25,9 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen(!menuOpen);  
   };
-
+  
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -31,6 +40,14 @@ const Navbar = () => {
     closeMenu();
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -40,14 +57,41 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark-900/95 backdrop-blur-md shadow-lg border-b border-dark-700' : 'bg-transparent'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+    <>
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 z-50 origin-left"
+        style={{ scaleX: scrollProgress / 100 }}
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: scrollProgress / 100 }}
+        transition={{ duration: 0.1 }}
+      />
+
+      {/* Back to Top Button */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            initial={{ opacity: 0, scale: 0, y: 100 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0, y: 100 }}
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <ArrowUp className="w-5 h-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <motion.nav 
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled ? 'bg-dark-900/95 backdrop-blur-md shadow-lg border-b border-dark-700' : 'bg-transparent'
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
       <div className="container-max">
         <div className="flex items-center justify-between h-16 px-4">
           {/* Logo */}
@@ -73,6 +117,40 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
+            
+            {/* Theme Toggle Button */}
+            <motion.button
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                scrolled ? 'text-gray-300 hover:bg-dark-800' : 'text-white hover:bg-white/10'
+              }`}
+              whileHover={{ scale: 1.1, rotate: 180 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <AnimatePresence mode="wait">
+                {isDark ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ opacity: 0, rotate: -180 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Sun className="w-5 h-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ opacity: 0, rotate: -180 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    exit={{ opacity: 0, rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Moon className="w-5 h-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,7 +162,7 @@ const Navbar = () => {
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-        </div>
+      </div>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
@@ -115,6 +193,7 @@ const Navbar = () => {
         </AnimatePresence>
       </div>
     </motion.nav>
+    </>
   );
 };
 

@@ -73,6 +73,14 @@ const About = () => {
                  {/* Overlay Effect */}
                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                  
+                 {/* Interactive Hover Info */}
+                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                   <div className="text-center text-white">
+                     <div className="text-lg font-semibold mb-2">Full-Stack AI Developer</div>
+                     <div className="text-sm opacity-90">Click to learn more</div>
+                   </div>
+                 </div>
+                 
                  {/* Floating Elements */}
                  <div className="absolute top-4 right-4 w-3 h-3 bg-primary-400 rounded-full animate-pulse"></div>
                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -81,7 +89,10 @@ const About = () => {
                {/* Decorative Elements */}
                <div className="absolute -top-2 -right-2 w-6 h-6 border-2 border-primary-400 rounded-full animate-spin" style={{ animationDuration: '3s' }}></div>
                <div className="absolute -bottom-2 -left-2 w-4 h-4 border-2 border-purple-400 rounded-full animate-spin" style={{ animationDuration: '4s', animationDirection: 'reverse' }}></div>
-      </div>
+               
+               {/* Interactive Border */}
+               <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 transition-all duration-500"></div>
+             </div>
            </motion.div>
 
           {/* Content */}

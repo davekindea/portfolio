@@ -73,7 +73,35 @@
     animation: float 6s ease-in-out infinite;
   }
   
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-}
+          .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+          }
+          
+          .animate-typing {
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+          }
+          
+          .glass-morphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+          }
+          
+          .neon-glow {
+            box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+          }
+          
+          .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          }
+        }
+        
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: currentColor; }
+        }

@@ -4,6 +4,33 @@ import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import pic1 from "../asset/pexels-hasanalbari-1229861.jpg";
 import pic2 from "../asset/pexels-jibarofoto-2148216.jpg";
 
+// Typing Animation Component
+const TypingAnimation = ({ text, speed = 100 }) => {
+  const [displayText, setDisplayText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, speed);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, text, speed]);
+
+  return (
+    <span className="relative">
+      {displayText}
+      <motion.span
+        className="inline-block w-0.5 h-6 bg-cyan-400 ml-1"
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{ duration: 1, repeat: Infinity }}
+      />
+    </span>
+  );
+};
+
 const Home = () => {
   const [currentPic, setCurrentPic] = useState(pic1); 
 
@@ -95,7 +122,7 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 120 }}
             >
-              Dawit Kindea
+              <TypingAnimation text="Dawit Kindea" speed={150} />
             </motion.span>
           </motion.h1>
 
