@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Calendar, Code } from 'lucide-react';
-import img from '../asset/Screenshot (245).png';
-import img2 from '../asset/Screenshot (246).png'; 
-import img3 from '../asset/Screenshot (247).png'; 
+import img from '../asset/doc.jpg';
+import img2 from '../asset/Screenshot 2025-10-01 110104.png'; 
+import img3 from '../asset/images.jpg'; 
 import img4 from '../asset/Screenshot (35).png'; 
-import img5 from '../asset/Screenshot (122).png'; 
+import img5 from '../asset/Screenshot (245).png'; 
+import img6 from '../asset/photo_2025-01-08_04-35-36.jpg'; 
 
 const Project = () => {
   const projects = [
@@ -14,7 +15,7 @@ const Project = () => {
       imgsrc: img3, 
       description: 'Developed an intelligent traffic control system using AI and computer vision to optimize traffic flow. Utilized RASVerify for hardware integration, YOLO for real-time vehicle detection, and custom time prediction algorithms to dynamically adjust traffic light durations.',
       techStack: ['Python', 'YOLO', 'Computer Vision', 'RASVerify', 'AI/ML', 'TensorFlow'],
-      githubLink: 'https://github.com/davekindea/traffic-management.git',
+      githubLink: 'https://github.com/davekindea',
       liveDemo: null,
       date: '2024-2025',
       category: 'AI/ML'
@@ -24,7 +25,7 @@ const Project = () => {
       imgsrc: img, 
       description: 'Led the development of a comprehensive Document Management System for government projects. Optimized performance, security, and accessibility with seamless document storage, retrieval, and management capabilities.',
       techStack: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'JWT', 'Bootstrap'],
-      githubLink: 'https://github.com/davekindea/document-management.git',
+      githubLink: 'https://github.com/davekindea',
       liveDemo: null,
       date: '2024',
       category: 'Full Stack'
@@ -34,7 +35,7 @@ const Project = () => {
       imgsrc: img2, 
       description: 'Contributed to the development of a comprehensive e-commerce website focusing on performance, security, and user experience. Built seamless, scalable solution for product management, order processing, and secure transactions.',
       techStack: ['Next.js', 'Django', 'Python', 'PostgreSQL', 'Tailwind CSS'],
-      githubLink: 'https://github.com/davekindea/ecommerce.git',
+      githubLink: 'https://github.com/davekindea',
       liveDemo: null,
       date: '2024-2025',
       category: 'Full Stack'
@@ -44,7 +45,7 @@ const Project = () => {
       imgsrc: img4, 
       description: 'Developed a comprehensive hospital management website integrating patient records, scheduling, and staff management modules. Streamlined hospital operations and improved workflow efficiency.',
       techStack: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'Bootstrap'],
-      githubLink: 'https://github.com/davekindea/HMS.git',
+      githubLink: 'https://github.com/davekindea',
       liveDemo: null,
       date: '2023',
       category: 'Full Stack'
@@ -54,17 +55,17 @@ const Project = () => {
       imgsrc: img5, 
       description: 'Designed a full-stack social media app featuring authentication, post creation, and real-time messaging. Built with modern web technologies and responsive design principles.',
       techStack: ['React.js', 'Node.js', 'MySQL', 'Socket.io', 'JWT', 'CSS3'],
-      githubLink: 'https://github.com/davekindea/social-media.git',
+      githubLink: 'https://github.com/davekindea',
       liveDemo: null,
       date: '2024',
       category: 'Full Stack'
     },
     { 
       title: 'Fraud Detection System', 
-      imgsrc: img3, 
+      imgsrc: img6, 
       description: 'Built a machine learning-based fraud detection model using Scikit-learn and TensorFlow for anomaly detection in financial transactions. Part of 10Academy data science training program.',
       techStack: ['Python', 'Scikit-learn', 'TensorFlow', 'NumPy', 'Pandas', 'ML'],
-      githubLink: 'https://github.com/davekindea/fraud-detection.git',
+      githubLink: 'https://github.com/davekindea',
       liveDemo: null,
       date: '2024',
       category: 'AI/ML'

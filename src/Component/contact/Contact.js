@@ -14,7 +14,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    emailjs.sendForm('service_7qxnbju', 'template_rg0couy', form.current, 'H9RvjXV_J9FA3dg1Q')
+    emailjs.sendForm('service_m7qpgq9', 'template_rg0couy', form.current, 'JfwVltafwEoHIIVXN')
       .then(
         () => {
           setAlertMessage('Message sent successfully! I\'ll get back to you soon.');
@@ -28,7 +28,11 @@ const Contact = () => {
           }, 5000);
         },
         (error) => {
-          setAlertMessage('Failed to send the message. Please try again or contact me directly.');
+          // Log detailed error for troubleshooting
+          // eslint-disable-next-line no-console
+          console.error('EmailJS error:', error);
+          const details = error?.text || error?.message || '';
+          setAlertMessage(`Failed to send the message. ${details ? `Details: ${details}` : 'Please try again or contact me directly.'}`);
           setAlertType('error');
           setShowAlert(true);
           setIsSubmitting(false);
@@ -161,16 +165,18 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold text-navy-800 mb-6">Send me a message</h3>
               
               <form ref={form} onSubmit={sendEmail} className="space-y-6">
+                {/* Hidden default subject for EmailJS templates */}
+                <input type="hidden" name="subject" value="Portfolio Contact" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name
                   </label>
                   <input
                     id="name"
-                    name="to_name"
+                    name="from_name"
                     type="text"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors placeholder-black"
                     placeholder="Your full name"
                   />
                 </div>
@@ -181,10 +187,10 @@ const Contact = () => {
                   </label>
                   <input
                     id="email"
-                    name="to_email"
+                    name="reply_to"
                     type="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors placeholder-black"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -198,7 +204,7 @@ const Contact = () => {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none placeholder-black"
                     placeholder="Tell me about your project..."
                   />
                 </div>

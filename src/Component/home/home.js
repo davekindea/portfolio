@@ -5,34 +5,49 @@ import pic1 from "../asset/pexels-hasanalbari-1229861.jpg";
 import pic2 from "../asset/pexels-jibarofoto-2148216.jpg";
 
 // Typing Animation Component
-const TypingAnimation = ({ text, speed = 100 }) => {
+const TypingAnimation = ({ text, speed = 100, delay = 0, className = "" }) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
+    const startTimer = setTimeout(() => {
+      setHasStarted(true);
+    }, delay);
+
+    return () => clearTimeout(startTimer);
+  }, [delay]);
+
+  useEffect(() => {
+    if (hasStarted && currentIndex < text.length) {
       const timeout = setTimeout(() => {
         setDisplayText(prev => prev + text[currentIndex]);
         setCurrentIndex(prev => prev + 1);
       }, speed);
       return () => clearTimeout(timeout);
+    } else if (currentIndex === text.length && text.length > 0) {
+      setIsComplete(true);
     }
-  }, [currentIndex, text, speed]);
+  }, [currentIndex, text, speed, hasStarted]);
 
   return (
-    <span className="relative">
-      {displayText}
-      <motion.span
-        className="inline-block w-0.5 h-6 bg-cyan-400 ml-1"
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
-      />
+    <span className={`relative inline-block ${className}`}>
+      {displayText || text}
+      {!isComplete && displayText.length < text.length && (
+        <motion.span
+          className="inline-block w-1 h-8 bg-cyan-400 ml-2"
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+        />
+      )}
     </span>
   );
 };
 
 const Home = () => {
   const [currentPic, setCurrentPic] = useState(pic1); 
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -116,14 +131,13 @@ const Home = () => {
             animate={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
             transition={{ duration: 1, delay: 0.6, type: "spring", stiffness: 80 }}
           >
-            <motion.span 
-              className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-glow"
+            <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 120 }}
             >
-              <TypingAnimation text="Dawit Kindea" speed={150} />
-            </motion.span>
+              <span className="text-white animate-glow">Dawit Kindea</span>
+            </motion.div>
           </motion.h1>
 
           {/* Title */}
@@ -168,45 +182,78 @@ const Home = () => {
             </motion.span>
           </motion.p>
 
-          {/* Tech Stack Pills */}
+          {/* Skill Categories (Clickable) */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="flex flex-wrap justify-center gap-3 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.0, type: "spring", stiffness: 100 }}
           >
             {[
-              { name: 'React.js', color: 'text-blue-300 border-blue-400/50 hover:bg-blue-500/20' },
-              { name: 'Python', color: 'text-yellow-300 border-yellow-400/50 hover:bg-yellow-500/20' },
-              { name: 'Node.js', color: 'text-green-300 border-green-400/50 hover:bg-green-500/20' },
-              { name: 'AI/ML', color: 'text-purple-300 border-purple-400/50 hover:bg-purple-500/20' },
-              { name: 'Computer Vision', color: 'text-pink-300 border-pink-400/50 hover:bg-pink-500/20' },
-              { name: 'MongoDB', color: 'text-emerald-300 border-emerald-400/50 hover:bg-emerald-500/20' }
-            ].map((tech, index) => (
-              <motion.span
-                key={tech.name}
-                className={`px-4 py-2 bg-dark-800/50 backdrop-blur-sm border rounded-full text-sm font-medium transition-all duration-300 ${tech.color}`}
+              { 
+                name: 'WordPress', 
+                color: 'text-blue-300 border-blue-400/50 hover:bg-blue-500/20',
+                skills: ['Custom Themes', 'Plugins', 'WooCommerce', 'Headless WP', 'ACF', 'SEO']
+              },
+              { 
+                name: 'Machine Learning', 
+                color: 'text-purple-300 border-purple-400/50 hover:bg-purple-500/20',
+                skills: ['Python', 'TensorFlow', 'Scikit-learn', 'Pandas', 'Computer Vision', 'YOLO']
+              },
+              { 
+                name: 'Full-Stack Developer', 
+                color: 'text-emerald-300 border-emerald-400/50 hover:bg-emerald-500/20',
+                skills: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'Auth (JWT)']
+              },
+            ].map((cat, index) => (
+              <motion.button
+                key={cat.name}
+                type="button"
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 bg-dark-800/50 backdrop-blur-sm border rounded-full text-sm font-medium transition-all duration-300 ${cat.color}`}
                 initial={{ opacity: 0, scale: 0.5, y: 50, rotateZ: -180 }}
                 animate={{ opacity: 1, scale: 1, y: 0, rotateZ: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 2.2 + index * 0.15, 
-                  type: "spring", 
-                  stiffness: 120,
-                  damping: 8
-                }}
-                whileHover={{ 
-                  scale: 1.1, 
-                  rotateZ: 5,
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.6, delay: 2.2 + index * 0.15, type: 'spring', stiffness: 120, damping: 8 }}
+                whileHover={{ scale: 1.08, y: -5 }}
+                whileTap={{ scale: 0.96 }}
               >
-                {tech.name}
-              </motion.span>
+                {cat.name}
+              </motion.button>
             ))}
           </motion.div>
+
+          {/* Selected Category Skills Panel */}
+          {selectedCategory && (
+            <motion.div
+              key={selectedCategory.name}
+              className="max-w-2xl mx-auto mb-12 card-dark p-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-200">{selectedCategory.name} Skills</h3>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory(null)}
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {selectedCategory.skills.map((skill, idx) => (
+                  <motion.span
+                    key={idx}
+                    className="px-3 py-1 bg-dark-700 text-gray-300 rounded-full text-sm border border-dark-600 hover:border-primary-500/50 hover:bg-primary-500/20 hover:text-primary-300 transition-all"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           {/* CTA Buttons */}
           <motion.div 
